@@ -1,15 +1,10 @@
-/*
-module.exports = function main() {
-    console.log("Debug Info");
-    return 'Hello World!';
-};
-*/
-module.exports = function main() {
 
-    return function printReceipt(arr){
+module.exports = function main(arr) {
+    function printReceipt(arr){
         var newArr=[];
             arr.forEach(item=>{
                 item.Number=1;
+                let out = parseFloat(item.Price);
             var dataItem =item
                 if(newArr.length>0){
                     var filterValue = newArr.filter(v=>{
@@ -27,28 +22,28 @@ module.exports = function main() {
                 }else{
                     newArr.push(dataItem)
                 }
-        })
-        
-       return newArr
-        }
-    
-        console.log("***<store earning no money>Receipt ***");
-        var result = printReceipt(input);
-        var total=0;
-        for(let k=0;k<result.length;k++)
+        })   
+        let output = "***<store earning no money>Receipt ***\n";      
+        let total=0;
+        for(let k=0;k<newArr.length;k++)
         {
-            let record = result[k];
+            let record = newArr[k];
             if(record.Number>1)
             {
-                
+                record.Unit = " "+record.Unit+"s";
             }
+            if(record.Unit=="a")
+            {
+                record.Unit = "";
+            }      
             let price = record.Price*record.Number;
             total += price;
-            let output="Name: "+record.Name+", Quantity:"+record.Number+" "+record.Unit+" ,Unit price:"+record.Price+" (yuan), Subtotal:"+price+" (yuan)";
-            console.log(output);
-            
+            output +="Name: "+toPascal(record.Name)+", Quantity: "+record.Number+record.Unit+", Unit price: "+record.Price.toFixed(2)+" (yuan), Subtotal: "+price.toFixed(2)+" (yuan)\n";               
         }
-        console.log("----------------------");
-        console.log("Total:"+total+" (yuan)");
-        console.log("**********************");
-};
+        output +="----------------------\n";
+        output +="Total: "+total.toFixed(2)+" (yuan)\n";
+        output +="**********************\n";
+        console.log(output);
+        return output
+        } 
+    }
