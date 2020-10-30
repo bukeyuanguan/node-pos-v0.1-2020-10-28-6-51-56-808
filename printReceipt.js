@@ -56,7 +56,7 @@ function toPascal(name)
 {
     let output;
     let flag = name.search("-");
-    console.log(name);
+    //console.log(name);
     if( flag == -1)
     {
         //console.log("normal");
@@ -68,8 +68,8 @@ function toPascal(name)
     }
     else
     {
-        console.log("snake");
-        console.log(flag);
+        //console.log("snake");
+        //console.log(flag);
         let output="";
         let strArray=name.split("-");
         strArray.forEach(item=>{
@@ -139,8 +139,8 @@ function printReceipt(arr){
     console.log(output);
     return output
     } 
-    printReceipt(input);
-    let expectText =
+    let a1 = printReceipt(input);
+    let a2 =
             '***<store earning no money>Receipt ***\n' +
             'Name: Coca-Cola, Quantity: 5 bottles, Unit price: 3.00 (yuan), Subtotal: 15.00 (yuan)\n' +
             'Name: Sprite, Quantity: 2 bottles, Unit price: 3.00 (yuan), Subtotal: 6.00 (yuan)\n' +
@@ -148,7 +148,17 @@ function printReceipt(arr){
             '----------------------\n' +
             'Total: 23.00 (yuan)\n' +
             '**********************\n';
-            console.log("+++++++++++++++++++++++++++++++++++++++++++");
-            console.log(expectText);
+            if(a1==a2)
+            {
+
+                console.log("true");
+            }
+            else
+            {
+                console.log("false");
+
+            }
+            
+            
 
     
