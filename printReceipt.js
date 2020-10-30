@@ -56,11 +56,8 @@ function toPascal(name)
 {
     let output;
     let flag = name.search("-");
-    //console.log(name);
     if( flag == -1)
     {
-        //console.log("normal");
-        //console.log(flag);
         let nameLow = name.toLowerCase();
         let firstLetterUpper = nameLow.slice(0,1).toUpperCase();
         output = firstLetterUpper+nameLow.slice(1,nameLow.length+1); 
@@ -68,8 +65,6 @@ function toPascal(name)
     }
     else
     {
-        //console.log("snake");
-        //console.log(flag);
         let output="";
         let strArray=name.split("-");
         strArray.forEach(item=>{
@@ -79,20 +74,7 @@ function toPascal(name)
     return output.substring(0,output.length - 1);
     }         
 }
-//console.log(toPascal("sggfag"));
-//console.log(toPascal("sgg-fag"));
-//console.log("sgg-fag".indexOf("-"));
-/*
-function snakeToPascal(name)
-{
-    let output="";
-    let strArray=name.split("-");
-        strArray.forEach(item=>{
-            output += toPascal(item)+"-";
-        });  
-    return output.substring(0,output.length - 1);
-}
-*/
+
 function printReceipt(arr){
     var newArr=[];
         arr.forEach(item=>{
